@@ -3,7 +3,7 @@ public class Validador {
     public static boolean validarCPF(String cpf) {
         if (cpf == null || cpf.trim().isEmpty()) return false;
 
-        String limpo = sanitize(cpf);
+        String limpo = removeLetra(cpf);
 
         if (!temTamanhoValido(limpo)) return false;
         if (isSequencia(limpo)) return false;
@@ -17,7 +17,7 @@ public class Validador {
     //classes privadas para garantir o comportamento e que ninguem mude-as
 
     /*remove tudo que não for dígito*/
-    private static String sanitize(String cpf) {
+    private static String removeLetra(String cpf) {
         return cpf.trim().replaceAll("\\D", "");
     }
 

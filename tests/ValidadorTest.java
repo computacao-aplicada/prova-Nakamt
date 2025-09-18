@@ -43,5 +43,13 @@ public class ValidadorTest {
         assertFalse(Validador.validarCPF("123.456.789-10"));
     }
 
+    @Test
+    void aceitaEspacosExternos() {
+        assertTrue(Validador.validarCPF("  137.667.729-61  "));
+    }
 
+    @Test
+    void rejeitaOutroCPFZoado() {
+        assertFalse(Validador.validarCPF("111.111.111-11"));
+    }
 }
