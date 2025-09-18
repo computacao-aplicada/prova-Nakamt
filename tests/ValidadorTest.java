@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class ValidadorTest {
     @Test
-    void deveValidarCPFValido() {
+    void testeCPFcomFiltro() {
       assertTrue(Validador.validarCPF("529.982.247-25"));
     }
 
