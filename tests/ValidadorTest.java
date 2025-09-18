@@ -4,32 +4,44 @@ import org.junit.jupiter.api.Test;
 
 public class ValidadorTest {
     @Test
-    void testeCPFcomFiltro() {
-      assertTrue(Validador.validarCPF("529.982.247-25"));
+    public void testeCPFcomFiltro() {
+      assertTrue(Validador.validarCPF("137.667.729-61"));
     }
 
     @Test
-    void testeCPFSemFiltro(){
-        assertTrue(Validador.validarCPF("52998224725"));
+    public void testeCPFSemFiltro(){
+        assertTrue(Validador.validarCPF("13766772961"));
     }
 
     @Test
-    void rejeitaCPFNull(){
+    public void rejeitaCPFNull(){
         assertFalse(Validador.validarCPF(null));
     }
 
     @Test
-    void rejeitarCPFSemNada(){
+    public void rejeitarCPFSemNada(){
         assertFalse(Validador.validarCPF(""));
     }
 
     @Test
-    void rejeitarCPFZoado(){
-        assertFalse(Validador.validarCPF("529.982.247-2X"));
+    public void rejeitarCPFZoado(){
+        assertFalse(Validador.validarCPF("137.667.729-XY"));
     }
 
     @Test
-    void rejeitarCPFZerado() {
-        assertFalse(Validador.validarCPF("00000000000"));   // sequência repetida
+    public void rejeitarCPFZerado() {
+        assertFalse(Validador.validarCPF("00000000000"));
     }
+
+    @Test
+    public void rejeitarDVErradissimo() {
+        assertFalse(Validador.validarCPF("137.667.729-60"));
+    }
+
+    @Test
+    public void rejeitarDVErradissimo2(){
+        assertFalse(Validador.validarCPF("123.456.789-10"));
+    }
+
+
 }
